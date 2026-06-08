@@ -1,0 +1,15 @@
+{
+  "id": "019ea1e5-8ebf-746d-9468-da27082df09b",
+  "name": "Garden Heart Anniversary Site",
+  "description": "Create the complete architecture and experience design for a premium romantic storytelling website called \"The Garden Inside My Heart\" — a first-month anniversary gift from a husband to his wife. Deliverables include storyboard, UX flow, motion plan, technical architecture, and development roadmap. Technology stack: Next.js 15, TypeScript, Tailwind CSS, Framer Motion, GSAP, Lenis. Do NOT generate code until architecture is approved. Design areas: emotional journey, all scenes from opening to ending, diary interaction, page-turn animations, flower-growth interactions, bouquet reveal, mobile-first interactions, typography and color system, component architecture, folder structure.",
+  "status": "draft",
+  "worktree": {
+    "path": "/mnt/c/MY Projects/gift"
+  },
+  "scoping": {},
+  "phases": [],
+  "decisions": [],
+  "memories": [],
+  "createdAt": "2026-06-07T11:43:56.607Z",
+  "updatedAt": "2026-06-07T11:43:56.607Z"
+}

@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Garden color palette */
+  --color-garden-dark: #0a0a0a;
+  --color-garden-charcoal: #1a1a1a;
+  --color-garden-parchment: #f4e4c1;
+  --color-garden-parchment-aged: #e8d5a3;
+  --color-garden-green-deep: #1a2e1a;
+  --color-garden-amber: #c9a227;
+  --color-garden-gold: #f4a900;
+  --color-garden-crimson: #c41e3a;
+  --color-garden-cream: #f5f5f0;
+  --color-garden-cosmic: #0a0a1a;
+  --color-garden-pearl: #eae0c8;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--color-garden-dark);
+  color: var(--color-garden-parchment);
+  font-family: var(--font-cormorant-garamond), Georgia, serif;
+}
+
+/* Prevent body scroll when modal/overlay is active */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-garden-amber);
+  color: var(--color-garden-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-garden-charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-garden-amber);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-garden-gold);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-garden-amber);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Ink text effect base */
+.ink-text {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+/* Parchment texture overlay */
+.parchment-bg {
+  background-image:
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+}
+
+/* Golden border effect */
+.golden-border {
+  border: 2px solid var(--color-garden-amber);
+  box-shadow:
+    0 0 10px rgba(201, 162, 39, 0.3),
+    inset 0 0 10px rgba(201, 162, 39, 0.1);
+}
+
+/* Wax seal effect */
+.wax-seal {
+  background: radial-gradient(circle at 30% 30%, #a91e2e, var(--color-garden-crimson) 50%, #8a1520);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* 3D perspective helper */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Glow effects */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+}
+
+.glow-gold {
+  box-shadow: 0 0 30px rgba(244, 169, 0, 0.6);
+}
+
+.glow-crimson {
+  box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+}
+
+/* Keyhole animation */
+@keyframes keyholeGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(244, 169, 0, 0.9));
+  }
+}
+
+.keyhole-glow {
+  animation: keyholeGlow 2s ease-in-out infinite;
+}
+
+/* Letter float animation */
+@keyframes letterFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.letter-float {
+  animation: letterFloat 6s ease-in-out infinite;
+}
+
+/* Rose petal keyframes */
+@keyframes petalFall1 {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalFall2 {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-30px) rotate(-720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalFall3 {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(80px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal-1 { animation: petalFall1 10s linear infinite; }
+.petal-2 { animation: petalFall2 12s linear infinite; }
+.petal-3 { animation: petalFall3 8s linear infinite; }
+
+/* Star twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.star-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Transition iris wipe */
+.iris-wipe {
+  position: fixed;
+  inset: 0;
+  background: var(--color-garden-dark);
+  clip-path: circle(0% at 50% 50%);
+  z-index: 100;
+}
+
+/* Page turn 3D effect base */
+.page-turn-wrapper {
+  transform-style: preserve-3d;
+}
+
+.page-turn-front,
+.page-turn-back {
+  backface-visibility: hidden;
+}
+
+.page-turn-back {
+  transform: rotateY(180deg);
+}
+
+/* Scene container */
+.scene-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive typography scale */
+.text-scene-title {
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.2;
+}
+
+.text-scene-body {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  line-height: 1.8;
+}
+
+.text-scene-caption {
+  font-size: clamp(0.875rem, 3vw, 1.125rem);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Shimmer text animation */
+.shimmer-text {
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Grain texture animation for paper */
+.grain-texture {
+  animation: grain 0.5s steps(1) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+  100% { transform: translate(0, 0); }
+}
